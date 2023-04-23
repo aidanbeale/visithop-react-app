@@ -14,6 +14,8 @@ import Home from './views/home/home'
 import Search from './views/search/search'
 import Error from './views/error/error'
 
+import Footer from './components/footer/footer';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +33,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <RouterProvider router={router} />
+    <Footer />
   </Provider>
 );
 
