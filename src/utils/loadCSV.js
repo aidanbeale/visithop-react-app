@@ -30,10 +30,10 @@ export default function LoadCSV() {
           .map((item) => {
             item = item.split(",");
             return {
-              name: item[0],
-              country: item[1],
-              latitude: item[2],
-              longitude: item[3],
+              name: item[0].replace(/[\r]/g, ''),
+              country: item[1].replace(/[\r]/g, ''),
+              latitude: item[2].replace(/[\r]/g, ''),
+              longitude: item[3].replace(/[\r]/g, ''),
             };
           });
           // Remove first item from array (headers)

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 import './home.css';
+
 import LoadCSV from '../../utils/loadCSV';
+
+import Searchbar from '../../components/searchbar/searchbar';
 
 function Home() {
   const [citiesList, setCitiesList] = useState([]);
@@ -16,6 +19,7 @@ function Home() {
 
   return (
     <div>
+      <Searchbar citiesList={citiesList} />
     </div>
   )
 }

@@ -1,0 +1,37 @@
+.search-city {
+  flex: 5 0 0px !important;
+  cursor: pointer;
+}
+.search-city-clicked {
+  z-index: 999;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1.5pt rgba(34, 34, 34, 0.7);
+}
+.autocomplete {
+  flex: 0 0 0px !important;
+  padding: 16px 24px !important;
+  position: relative;
+  display: inline-block;
+}
+.input-label {
+  cursor: pointer;
+  flex: 0 0 0px !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  padding-bottom: 6px !important;
+  text-transform: uppercase !important;
+}
+.search-input {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.search-hover {
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1.5pt rgba(34, 34, 34, 0.3);
+}

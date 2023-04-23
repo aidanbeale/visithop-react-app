@@ -1,0 +1,35 @@
+.submit-button {
+  flex: 0 0 0px !important;
+  margin-left: auto;
+  height: 100% !important;
+  padding: 10px !important;
+  box-sizing: border-box;
+}
+.submit-button-inner {
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  ) !important;
+  height: 100%;
+  text-decoration: none !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  border-radius: 8px !important;
+  border-width: 1px !important;
+  border: none;
+}
+.button-svg {
+  color: white;
+  display: block;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 4;
+  overflow: visible;
+}

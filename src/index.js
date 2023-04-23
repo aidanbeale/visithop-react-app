@@ -8,12 +8,18 @@ import {
 
 import './index.css';
 import Home from './views/home/home'
+import Search from './views/search/search'
 import Error from './views/error/error'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
     errorElement: <Error />,
   },
 ]);
