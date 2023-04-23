@@ -1,0 +1,20 @@
+#places {
+  margin-top: 15px;
+}
+
+#places-list {
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+@media (max-width: 700px) {
+  #places {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  #places-list {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

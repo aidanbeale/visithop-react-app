@@ -16,9 +16,11 @@ const serialize = function (obj) {
 
 function SearchButton({ searchTerm }) {
   const dispatch = useDispatch()
+  const selectAppState = state => state.appState
+  const appState = useSelector(selectAppState)
+
   const navigate = useNavigate();
 
-  const [redirectPath, setRedirectPath] = useState(null);
   function buttonClicked() {
     // Ensure city has been selected
     if (
@@ -27,11 +29,11 @@ function SearchButton({ searchTerm }) {
       searchTerm.longitude !== 0
     ) {
       dispatch({ type: 'appState/setChosenCity', payload: searchTerm });
-      setRedirectPath("/search?" + serialize(searchTerm));
+      navigate('/search');
     }
   }
-  if (redirectPath) {
-    navigate(redirectPath);
+  if (appState.searchTerm) {
+    navigate('/search');
   } else {
     return (
       <div className="submit-button" onClick={buttonClicked}>

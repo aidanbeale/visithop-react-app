@@ -63,7 +63,7 @@ export default function findNearbyCities(
       // Removing first city as it will be the same as searched city
       locationArray.shift();
       // Save sorted city arry to state
-      resolve(locationArray.slice(0, 6));
+      resolve(locationArray);
     }
   });
 }

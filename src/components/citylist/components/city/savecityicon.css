@@ -1,0 +1,53 @@
+.savecity-svg {
+  fill: transparent;
+  height: 24px;
+  width: 24px;
+  stroke: rgb(34, 34, 34);
+  stroke-width: 2;
+  overflow: visible;
+}
+.savecity-svg-mobile {
+  fill: rgba(0, 0, 0, 0.5);
+  height: 24px;
+  width: 24px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+  overflow: visible;
+}
+.savecity-svg.saved {
+  fill: rgb(255, 56, 92) !important;
+  stroke: rgb(255, 56, 92) !important;
+}
+.savecity-svg-mobile.saved {
+  fill: rgb(255, 56, 92);
+  stroke: rgb(255, 255, 255);
+}
+.savecity-container {
+  cursor: pointer;
+  content: "" !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.savecity-container-mobile {
+  z-index: 10;
+  right: 0;
+  top: 0;
+  position: absolute;
+  cursor: pointer;
+  content: "" !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.savecity-container:hover {
+  background-color: rgb(239, 239, 239);
+}
