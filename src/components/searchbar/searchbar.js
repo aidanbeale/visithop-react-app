@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 
+import { useSelector, useDispatch } from 'react-redux'
+
 import "./searchbar.css";
 import SearchButton from "./components/searchbutton/searchbutton";
 import AutocompleteSearch from "./components/autocompletesearch/autocompletesearch";
 import AutocompleteList from "./components/autocompletelist/autocompletelist";
 
 function Searchbar({ citiesList }) {
+  const dispatch = useDispatch();
+  const selectAppState = state => state.appState;
+  const appState = useSelector(selectAppState);
+
   const [showCities, setShowCities] = useState([]);
   const [renderAutocompleteList, setrenderAutocompleteList] = useState(false);
   const [searchTerm, setSearchTerm] = useState({
@@ -25,7 +31,8 @@ function Searchbar({ citiesList }) {
       <div className="input-main">
         <div className="input-div">
           <AutocompleteSearch
-            citiesList={citiesList}
+            // citiesList={citiesList}
+            citiesList={appState.citiesList}
             setShowCities={setShowCities}
             setrenderAutocompleteList={setrenderAutocompleteList}
             searchTerm={searchTerm}
