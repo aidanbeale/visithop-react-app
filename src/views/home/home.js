@@ -12,20 +12,16 @@ function Home() {
   const selectAppState = state => state.appState
   const appState = useSelector(selectAppState)
 
-  // const [citiesList, setCitiesList] = useState([]);
-
   useEffect(() => {
     if (appState.citiesList && appState.citiesList.length === 0) {
       LoadCSV().then((cities) => {
         dispatch({ type: 'appState/setCitiesList', payload: cities });
-        // setCitiesList(cities);
       });
     }
   }, [appState.citiesList]);
 
   return (
     <div>
-      {/* <Searchbar citiesList={citiesList} /> */}
       <Searchbar />
     </div>
   )

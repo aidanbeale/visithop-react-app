@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
 
 import "./searchbutton.css";
 
@@ -14,6 +15,7 @@ const serialize = function (obj) {
 };
 
 function SearchButton({ searchTerm }) {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   const [redirectPath, setRedirectPath] = useState(null);
@@ -24,13 +26,12 @@ function SearchButton({ searchTerm }) {
       searchTerm.latitude !== 0 &&
       searchTerm.longitude !== 0
     ) {
-      debugger;
+      dispatch({ type: 'appState/setChosenCity', payload: searchTerm });
       setRedirectPath("/search?" + serialize(searchTerm));
     }
   }
   if (redirectPath) {
     navigate(redirectPath);
-    // return <Navigate to="redirectPath"
   } else {
     return (
       <div className="submit-button" onClick={buttonClicked}>
