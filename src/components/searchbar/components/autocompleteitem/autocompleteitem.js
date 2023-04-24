@@ -5,7 +5,8 @@ import "./autocompleteitem.css";
 function AutocompleteItem({ city, setSearchTerm, setrenderAutocompleteList }) {
   function handleClick() {
     setSearchTerm({
-      name: city.name + ", " + city.country,
+      name: city.name,
+      country: city.country,
       latitude: city.latitude,
       longitude: city.longitude,
     });

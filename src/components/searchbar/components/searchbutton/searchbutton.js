@@ -24,7 +24,8 @@ function SearchButton({ searchTerm }) {
   function buttonClicked() {
     // Ensure city has been selected
     if (
-      searchTerm.name.includes(",") &&
+      searchTerm.name &&
+      searchTerm.country &&
       searchTerm.latitude !== 0 &&
       searchTerm.longitude !== 0
     ) {

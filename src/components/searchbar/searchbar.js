@@ -7,7 +7,7 @@ import SearchButton from "./components/searchbutton/searchbutton";
 import AutocompleteSearch from "./components/autocompletesearch/autocompletesearch";
 import AutocompleteList from "./components/autocompletelist/autocompletelist";
 
-function Searchbar({ citiesList }) {
+function Searchbar() {
   const dispatch = useDispatch();
   const selectAppState = state => state.appState;
   const appState = useSelector(selectAppState);
@@ -31,12 +31,10 @@ function Searchbar({ citiesList }) {
       <div className="input-main">
         <div className="input-div">
           <AutocompleteSearch
-            // citiesList={citiesList}
             citiesList={appState.citiesList}
             setShowCities={setShowCities}
             setrenderAutocompleteList={setrenderAutocompleteList}
             searchTerm={searchTerm}
-            // setSearchTerm={setSearchTerm}
             updateSearchTerm={updateSearchTerm}
           />
           <SearchButton searchTerm={searchTerm} />
