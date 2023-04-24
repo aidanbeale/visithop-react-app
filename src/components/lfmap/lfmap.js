@@ -16,6 +16,17 @@ function LFMap() {
   useCSS("https://unpkg.com/leaflet@1.6.0/dist/leaflet.css");
   const position = [appState.sortedCities[0].latitude, appState.sortedCities[0].longitude];
 
+  let icon = L.icon({
+    iconRetinaUrl:
+      "https://visithop-cities.s3.ap-southeast-2.amazonaws.com/map-marker.png",
+    iconUrl:
+      "https://visithop-cities.s3.ap-southeast-2.amazonaws.com/map-marker.png",
+    // shadowUrl: require("./images/layers.png"),
+    iconSize: [41, 41], // size of the icon
+    iconAnchor: [20, 41], // point of the icon which will correspond to marker's location
+    popupAnchor: [2, -41],
+  });
+
     return (
       <MapContainer id="mapid" center={position} zoom="6">
         <TileLayer
@@ -28,6 +39,7 @@ function LFMap() {
               <Marker
                 key={city.name + city.country}
                 position={[city.latitude, city.longitude]}
+                icon={icon}
               >
                 <Popup>{city.name + ", " + city.country}</Popup>
               </Marker>
