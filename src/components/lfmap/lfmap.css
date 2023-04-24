@@ -1,0 +1,45 @@
+#mapid {
+  height: 100vh;
+  width: 100%;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+}
+
+@media (min-width: 1128px) {
+  #mapid {
+    width: calc(100% - 840px) !important;
+  }
+}
+
+@media (min-width: 701px) {
+  #mapid {
+    width: calc(100% - 600px) !important;
+    margin-top: 30px;
+    margin-bottom: 75px;
+  }
+}
+
+#mapid.mobile {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+#mapid .close-button {
+  z-index: 500;
+  right: 0;
+  position: absolute;
+  background: white;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
+  border: none;
+  padding: 5px;
+}
+#mapid .close-svg {
+  padding: 0;
+  height: 24px;
+  width: 24px;
+  display: block;
+}

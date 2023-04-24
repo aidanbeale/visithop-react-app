@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import findNearbyCities from '../../utils/findNearbyCities';
 import CityList from '../../components/citylist/citylist';
-// import LoadMoreCities from '../../components/loadmorecities/loadmorecities';
+import LFMap from "../../components/lfmap/lfmap";
 
 import Header from '../../components/header/header';
 
 import "./search.css";
 
 function Search() {
-  const dispatch = useDispatch()
-  const selectAppState = state => state.appState
-  const appState = useSelector(selectAppState)
+  const dispatch = useDispatch();
+  const selectAppState = state => state.appState;
+  const appState = useSelector(selectAppState);
 
   // Get closest cities to chosen
   useEffect(() => {
@@ -25,7 +25,7 @@ function Search() {
     }
   }, [appState.chosenCity, appState.citiesList]);
 
-  if (appState.sortedCities) {
+  if (appState.sortedCities.length) {
     return (
       <div id="main-content">
         <Header />
@@ -35,19 +35,8 @@ function Search() {
         <div className="listing-container">
           <div className="city-content-container">
             <CityList />
-            {/* <LoadMoreCities
-              displayCities={displayCities}
-              setDisplayCities={setDisplayCities}
-              sortedCities={sortedCities}
-              setSortedCities={setSortedCities}
-              setHasMerged={setHasMerged}
-            /> */}
           </div>
-          {/* <LFMap
-            isMobile={isMobile}
-            displayCities={displayCities}
-            setShowMap={setShowMap}
-          /> */}
+          <LFMap />
         </div>
       </div>
     )
