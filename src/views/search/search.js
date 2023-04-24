@@ -5,6 +5,8 @@ import findNearbyCities from '../../utils/findNearbyCities';
 import CityList from '../../components/citylist/citylist';
 // import LoadMoreCities from '../../components/loadmorecities/loadmorecities';
 
+import Header from '../../components/header/header';
+
 import "./search.css";
 
 function Search() {
@@ -26,6 +28,7 @@ function Search() {
   if (appState.sortedCities) {
     return (
       <div id="main-content">
+        <Header />
         <div className="message-text">
           <p>Discover nearby cities to {appState.chosenCity.name}</p>
         </div>

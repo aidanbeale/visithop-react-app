@@ -1,0 +1,61 @@
+header {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.header-title {
+  padding: 10px;
+  font-size: 32px;
+  font-family: "Leckerli One", cursive;
+  letter-spacing: 0.04em !important;
+  color: #404040;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  header .header-title {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+.user-option {
+  align-items: center;
+  display: flex;
+}
+
+.profile {
+  display: inline-block;
+}
+
+.profile-img-container {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+
+.profile-img {
+  border-radius: 50%;
+  min-width: 35px;
+  width: 35px;
+  height: 35px;
+}
+.profile-clicker {
+  padding-left: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  width: 14px;
+  height: 14px;
+}
+
+.header-title.homepage {
+  color: #ffffff !important;
+}
+
+.homepage {
+  box-shadow: none !important;
+}

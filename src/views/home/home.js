@@ -5,6 +5,7 @@ import './home.css';
 
 import LoadCSV from '../../utils/loadCSV';
 
+import Header from '../../components/header/header';
 import Searchbar from '../../components/searchbar/searchbar';
 import Features from '../../components/features/features';
 
@@ -31,6 +32,7 @@ function Home() {
 
   return (
     <div className="main-content">
+      <Header />
       <div className="hero-banner" ref={bannerImg}>
         <Searchbar />
       </div>
