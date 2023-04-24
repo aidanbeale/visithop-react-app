@@ -12,7 +12,7 @@ function CityList() {
   return (
     <div id="places">
       <div id="places-list">
-        {appState.sortedCities.slice(0,6).map((city) => {
+        {appState.fetchedCityData.map((city) => {
           if (!city.error) {
             return (
               <City

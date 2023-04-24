@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import findNearbyCities from '../../utils/findNearbyCities';
+import getCityData from '../../utils/fetchData/getCityData';
+
 import CityList from '../../components/citylist/citylist';
 import LFMap from "../../components/lfmap/lfmap";
-
 import Header from '../../components/header/header';
 
 import "./search.css";
@@ -25,7 +26,17 @@ function Search() {
     }
   }, [appState.chosenCity, appState.citiesList]);
 
-  if (appState.sortedCities.length) {
+  // Fetch city data from DB
+  useEffect(() => {
+    if (appState.sortedCities.length) {
+      getCityData(appState.sortedCities.slice(0,6))
+        .then((fetchedCities) => {
+          dispatch({ type: 'appState/setFetchedCityData', payload: fetchedCities });
+        })
+    }
+  }, [appState.sortedCities])
+
+  if (appState.fetchedCityData.length) {
     return (
       <div id="main-content">
         <Header />

@@ -1,7 +1,8 @@
 const initialState = {
   citiesList: [],
   sortedCities: [],
-  chosenCity: []
+  chosenCity: [],
+  fetchedCityData: []
 }
 
 export default function appStateReducer(state = initialState, action) {
@@ -34,6 +35,18 @@ export default function appStateReducer(state = initialState, action) {
       return {
         ...state,
         sortedCities: initialState.sortedCities
+      }
+    }
+    case 'appState/setFetchedCityData': {
+      return {
+        ...state,
+        fetchedCityData: action.payload
+      }
+    }
+    case 'appState/resetFetchedCityData': {
+      return {
+        ...state,
+        fetchedCityData: initialState.fetchedCityData
       }
     }
     case 'appState/reset': {
