@@ -2,7 +2,7 @@ const getCityData = (cities) => {
   return new Promise((resolve, reject) => {
     async function fetchCities() {
       // TODO: strip unused keys from cities object
-      const response = await fetch("https://airhmxlt81.execute-api.ap-southeast-2.amazonaws.com/city", {
+      const response = await fetch(process.env.REACT_APP_CITIES_API + '/city', {
         method: "POST",
         body: JSON.stringify({cities: cities})
       });
