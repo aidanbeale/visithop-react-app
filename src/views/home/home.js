@@ -8,6 +8,7 @@ import LoadCSV from '../../utils/loadCSV';
 import Header from '../../components/header/header';
 import Searchbar from '../../components/searchbar/searchbar';
 import Features from '../../components/features/features';
+import Label from '../../components/label/label';
 
 function Home() {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ function Home() {
       <Header />
       <div className="hero-banner" ref={bannerImg}>
         <Searchbar />
+        <Label labelText="AVAILABLE FOR CITIES IN EUROPE" />
       </div>
       <Features />
     </div>

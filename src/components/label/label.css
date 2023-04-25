@@ -1,0 +1,18 @@
+.label-div {
+  margin-top: 10px;
+  text-align: center;
+}
+.label-label {
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 11px !important;
+  line-height: 12px !important;
+  letter-spacing: 0.04em !important;
+  padding-bottom: 6px !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 768px) {
+  .label-label {
+    font-size: 12px !important;
+  }
+}
