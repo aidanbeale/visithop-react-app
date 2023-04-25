@@ -7,6 +7,7 @@ import getCityData from '../../utils/fetchData/getCityData';
 import CityList from '../../components/citylist/citylist';
 import LFMap from "../../components/lfmap/lfmap";
 import Header from '../../components/header/header';
+import LoadingSpinner from '../../components/loadingspinner/loadingspinner';
 
 import "./search.css";
 
@@ -14,6 +15,8 @@ function Search() {
   const dispatch = useDispatch();
   const selectAppState = state => state.appState;
   const appState = useSelector(selectAppState);
+
+  const [loading, setLoading] = useState(false);
 
   // Get closest cities to chosen
   useEffect(() => {
@@ -29,12 +32,16 @@ function Search() {
   // Fetch city data from DB
   useEffect(() => {
     if (appState.sortedCities.length) {
+      setLoading(true);
       getCityData(appState.sortedCities.slice(0,6))
         .then((fetchedCities) => {
           dispatch({ type: 'appState/setFetchedCityData', payload: fetchedCities });
+          setLoading(false);
         })
     }
   }, [appState.sortedCities])
+
+  if (loading) return <LoadingSpinner />;
 
   if (appState.fetchedCityData.length) {
     return (
