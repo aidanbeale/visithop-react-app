@@ -1,0 +1,33 @@
+.button-container {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.button-inner {
+  cursor: pointer;
+  color: white;
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  ) !important;
+  height: 100%;
+  text-decoration: none !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  border-radius: 8px !important;
+  border-width: 1px !important;
+  border: none;
+}
+.disableButton {
+  cursor: initial;
+  background: linear-gradient(
+    to right,
+    rgb(152 152 152) 0%,
+    rgb(183 183 183) 50%,
+    rgb(156 156 156) 100%
+  ) !important;
+}

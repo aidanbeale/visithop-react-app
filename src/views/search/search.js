@@ -7,6 +7,7 @@ import getCityData from '../../utils/fetchData/getCityData';
 import CityList from '../../components/citylist/citylist';
 import LFMap from "../../components/lfmap/lfmap";
 import Header from '../../components/header/header';
+import LoadMoreCities from '../../components/loadmorecities/loadmorecities';
 import LoadingSpinner from '../../components/loadingspinner/loadingspinner';
 
 import "./search.css";
@@ -31,7 +32,7 @@ function Search() {
 
   // Fetch city data from DB
   useEffect(() => {
-    if (appState.sortedCities.length) {
+    if (appState.sortedCities.length && !appState.fetchedCityData.length) {
       setLoading(true);
       getCityData(appState.sortedCities.slice(0,6))
         .then((fetchedCities) => {
@@ -53,6 +54,7 @@ function Search() {
         <div className="listing-container">
           <div className="city-content-container">
             <CityList />
+            <LoadMoreCities />
           </div>
           <LFMap />
         </div>

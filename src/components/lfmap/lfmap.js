@@ -14,7 +14,7 @@ function LFMap() {
   const appState = useSelector(selectAppState);
 
   useCSS("https://unpkg.com/leaflet@1.6.0/dist/leaflet.css");
-  const position = [appState.sortedCities[0].latitude, appState.sortedCities[0].longitude];
+  const position = [appState.fetchedCityData[0].latitude, appState.fetchedCityData[0].longitude];
 
   let icon = L.icon({
     iconRetinaUrl:
@@ -33,7 +33,7 @@ function LFMap() {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {appState.sortedCities.slice(0,6).map((city) => {
+        {appState.fetchedCityData.map((city) => {
           if (!city.error) {
             return (
               <Marker
