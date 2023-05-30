@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 
 import "./header.css";
 
+import SignupButton from "../signupbutton/signupbutton";
+import LoginButton from "../loginbutton/loginbutton";
+
 const MainNav = ({ isHome }) => {
   const headerRef = useRef();
 
@@ -37,6 +40,10 @@ function Header() {
   return (
     <header className={isHome ? "homepage" : null}>
       <MainNav isHome={isHome} />
+      <div className="login-options">
+        <LoginButton/>
+        <SignupButton />
+      </div>
     </header>
   );
 }
