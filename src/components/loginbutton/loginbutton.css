@@ -10,26 +10,18 @@
   transition: 0.3s;
   transition-property: background-color;
   margin-right: 10px;
-  /* border: solid 2px rgb(230, 30, 77); */
 }
 
-.btn-login {
-  cursor: pointer;
-  min-width: 115px;
-  height: 35px;
-  font-size: 1rem;
-  color: rgb(230, 30, 77);
-  background: hsla(0, 0%, 100%, 0.2);
-  border-style: none;
-  border-radius: 0.4rem;
-  transition: 0.3s;
-  transition-property: background-color;
-  margin-right: 10px;
-  /* border: solid 2px rgb(230, 30, 77); */
+.btn-login-light {
+  background: hsla(0, 0%, 52%, 0.2) !important;
 }
 
 .btn-login:hover {
   background: rgba(230, 230, 230, 0.35) !important;
+}
+
+.btn-login-light:hover {
+  background: hsla(0, 0%, 37%, 0.2) !important;
 }
 
 .homepage .btn-login {

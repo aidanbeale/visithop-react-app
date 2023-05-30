@@ -41,7 +41,7 @@ function Header() {
     <header className={isHome ? "homepage" : null}>
       <MainNav isHome={isHome} />
       <div className="login-options">
-        <LoginButton/>
+        <LoginButton isHome={isHome} />
         <SignupButton />
       </div>
     </header>
