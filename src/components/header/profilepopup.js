@@ -10,9 +10,7 @@ import "./profilepopup.css";
 
 const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
   const popupRef = useRef();
-  // const { user } = useAuth0();
-  // const { name, picture } = user;
-  const name = "Aidan Beale"
+  const name = "Test User"
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -32,7 +30,6 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
 
   useEffect(() => {
     const handleClick = (e) => {
-      // debugger;
       if (showProf) return;
       if (
         (popupRef.current && popupRef.current.contains(e.target)) ||
@@ -53,39 +50,32 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
   if (!showProf) return null;
   return (
     <div ref={popupRef} className="profile-popup-container">
+      <div className="popup-user-container">
+        <div className="popup-picture-container">
+          <img
+            className="popup-picture"
+            src={profileSVG}
+            alt="User profile"
+          ></img>
+        </div>
+        <div className="popup-user-details">
+          <p>{name.length > 14 ? name.slice(0, 14) + "..." : name}</p>
+          <p className="popup-profile-link">View profile</p>
+        </div>
+      </div>
       <ul>
-        <li className="popup-user-container">
-          <div className="popup-picture-container">
-            <img
-              className="popup-picture"
-              src={profileSVG}
-              alt="User profile"
-            ></img>
-          </div>
-          <div className="popup-user-details">
-            <p>{name.slice(0, 14) + "..."}</p>
-            <p className="popup-profile-link">View profile</p>
-          </div>
-        </li>
-        <li className="line-block"></li>
+        <div className="line-block"></div>
         <li className="profile-item item-disabled">
           <img className="profile-svg" src={backpackSVG} alt="Trips" />
           My Trips
         </li>
-        <li className="profile-item item-active" onClick={hidePopup}>
-          <NavLink to="/saved-cities">
+        <li className="profile-item item-disabled">
             <img className="profile-svg" src={heartSVG} alt="Heart" />
             Saved Cities
-          </NavLink>
         </li>
-        <li className="line-block"></li>
+        <div className="line-block"></div>
         <li
-          className="profile-item logout-button"
-          // onClick={() =>
-            // logout({
-            //   returnTo: window.location.origin,
-            // })
-          // }
+          className="profile-item logout-button item-disabled"
         >
           <img className="profile-svg" src={logoutSVG} alt="Exit" />
           Logout
