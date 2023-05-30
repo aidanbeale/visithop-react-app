@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { useLocation } from "react-router-dom";
 
 import './home.css';
 
@@ -11,12 +12,22 @@ import Features from '../../components/features/features';
 import Label from '../../components/label/label';
 
 function Home() {
+  const location = useLocation();
   const dispatch = useDispatch()
   const selectAppState = state => state.appState
   const appState = useSelector(selectAppState)
 
   const bannerImg = useRef(null);
 
+  useEffect(() => {
+    if (!appState.userAuthCode) {
+      const authCode = new URLSearchParams(location.search).get('code');
+      if (authCode) {
+        dispatch({ type: 'appState/setUserAuthCode', payload: authCode });
+      }
+    }
+  });
+ 
   useEffect(() => {
     if (appState.citiesList && appState.citiesList.length === 0) {
       LoadCSV().then((cities) => {

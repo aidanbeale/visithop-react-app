@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from "react-router-dom";
 
 import "./header.css";
@@ -25,8 +26,26 @@ const MainNav = ({ isHome }) => {
   );
 };
 
+const AuthNav = ({ isHome, userAuthCode }) => {
+  return (
+    <div className="user-options">
+      {userAuthCode ? (
+        <div>User</div>
+      ) : (
+        <div>
+          <LoginButton isHome={isHome} />
+          <SignupButton />
+        </div>
+      )}
+    </div>  
+  )
+}
+
 function Header() {
   const [isHome, setIsHome] = useState(window.location.pathname === "/");
+
+  const selectAppState = state => state.appState
+  const appState = useSelector(selectAppState)
 
   useEffect(() => {
     const homePath = window.location.pathname === "/";
@@ -40,10 +59,7 @@ function Header() {
   return (
     <header className={isHome ? "homepage" : null}>
       <MainNav isHome={isHome} />
-      <div className="login-options">
-        <LoginButton isHome={isHome} />
-        <SignupButton />
-      </div>
+      <AuthNav isHome={isHome} userAuthCode={appState.userAuthCode} />
     </header>
   );
 }
