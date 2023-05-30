@@ -2,7 +2,8 @@ const initialState = {
   citiesList: [],
   sortedCities: [],
   chosenCity: [],
-  fetchedCityData: []
+  fetchedCityData: [],
+  userAuthCode: null
 }
 
 export default function appStateReducer(state = initialState, action) {
@@ -47,6 +48,18 @@ export default function appStateReducer(state = initialState, action) {
       return {
         ...state,
         fetchedCityData: initialState.fetchedCityData
+      }
+    }
+    case 'appState/setUserAuthCode': {
+      return {
+        ...state,
+        userAuthCode: action.payload
+      }
+    }
+    case 'appState/resetUserAuthCode': {
+      return {
+        ...state,
+        userAuthCode: initialState.userAuthCode
       }
     }
     case 'appState/reset': {
