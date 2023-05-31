@@ -78,7 +78,7 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
           className="profile-item logout-button"
         >
           <img className="profile-svg" src={logoutSVG} alt="Exit" />
-          <a href="https://visithop.auth.ap-southeast-2.amazoncognito.com/logout?client_id=63vcmquos72i3tt3lc1k8tjkfr&response_type=code&logout_uri=http://localhost:3000/">
+          <a href={process.env.REACT_APP_AUTH_COGNITO_URL + 'logout?client_id=' + process.env.REACT_APP_AUTH_USER_POOL_CLIENT_ID + '&response_type=code&logout_uri=' + process.env.REACT_APP_AUTH_COGNITO_LOGOUT_URI}>
             Logout
           </a>
         </li>
