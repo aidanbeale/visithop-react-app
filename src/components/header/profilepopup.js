@@ -63,7 +63,7 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
           <p className="popup-profile-link">View profile</p>
         </div>
       </div>
-      <ul>
+      <ul className="popup-list">
         <div className="line-block"></div>
         <li className="profile-item item-disabled">
           <img className="profile-svg" src={backpackSVG} alt="Trips" />
