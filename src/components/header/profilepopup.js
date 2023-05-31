@@ -75,10 +75,12 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
         </li>
         <div className="line-block"></div>
         <li
-          className="profile-item logout-button item-disabled"
+          className="profile-item logout-button"
         >
           <img className="profile-svg" src={logoutSVG} alt="Exit" />
-          Logout
+          <a href="https://visithop.auth.ap-southeast-2.amazoncognito.com/logout?client_id=63vcmquos72i3tt3lc1k8tjkfr&response_type=code&logout_uri=http://localhost:3000/">
+            Logout
+          </a>
         </li>
       </ul>
     </div>
