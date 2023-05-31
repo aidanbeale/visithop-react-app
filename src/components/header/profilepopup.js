@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
 import heartSVG from "../../images/heart.svg";
 import logoutSVG from "../../images/logout.svg";
@@ -9,8 +9,11 @@ import profileSVG from "../../images/profile.svg";
 import "./profilepopup.css";
 
 const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
+  const selectAppState = state => state.appState;
+  const appState = useSelector(selectAppState);
+
   const popupRef = useRef();
-  const name = "Test User"
+  const name = appState.userInfo.username || "Unknown User";
 
   useEffect(() => {
     function handleClickOutside(event) {

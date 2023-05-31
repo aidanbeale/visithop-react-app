@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router-dom";
 
 import './home.css';
 
 import LoadCSV from '../../utils/loadCSV';
+import getUserToken from '../../utils/oauth/getUserToken';
+import getUserInfo from '../../utils/oauth/getUserInfo';
 
 import Header from '../../components/header/header';
 import Searchbar from '../../components/searchbar/searchbar';
@@ -17,6 +19,8 @@ function Home() {
   const selectAppState = state => state.appState
   const appState = useSelector(selectAppState)
 
+  const [authLoading, setAuthLoading] = useState(false);
+
   const bannerImg = useRef(null);
 
   useEffect(() => {
@@ -25,6 +29,29 @@ function Home() {
       if (authCode) {
         dispatch({ type: 'appState/setUserAuthCode', payload: authCode });
       }
+    }
+  });
+
+  // Fetch user token to retrieve user info
+  useEffect(() => {
+    if (!authLoading && appState.userAuthCode && !appState.userToken && !appState.userInfo) {
+      setAuthLoading(true);
+      getUserToken(appState.userAuthCode).then((token) => {
+        dispatch({ type: 'appState/setUserToken', payload: token });
+        setAuthLoading(false);
+      })
+    }
+  });
+
+  // Fetch user info once token received
+  useEffect(() => {
+    if (!authLoading && !appState.userInfo && appState.userToken) {
+      setAuthLoading(true);
+      debugger;
+      getUserInfo(appState.userToken.access_token).then((info) => {
+        dispatch({ type: 'appState/setUserInfo', payload: info });
+        setAuthLoading(false);
+      })
     }
   });
  
