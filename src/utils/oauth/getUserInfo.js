@@ -10,14 +10,12 @@ const getUserInfo = (bearerToken) => {
       const responseData = await response.json();
       if (responseData && !responseData.error) {
         return responseData;
-        debugger;
       }
       throw Error("Unable to fetch user info.");
     }
 
     fetchInfo()
       .then((info) => {
-        debugger;
         resolve(info);
       })
       .catch((error) => {

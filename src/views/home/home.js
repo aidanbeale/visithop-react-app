@@ -47,7 +47,6 @@ function Home() {
   useEffect(() => {
     if (!authLoading && !appState.userInfo && appState.userToken) {
       setAuthLoading(true);
-      debugger;
       getUserInfo(appState.userToken.access_token).then((info) => {
         dispatch({ type: 'appState/setUserInfo', payload: info });
         setAuthLoading(false);
