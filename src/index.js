@@ -6,8 +6,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
 
-import store from './store'
+import { persistor, store } from './store'
 
 import './index.css';
 import Home from './views/home/home'
@@ -30,10 +31,13 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router} />
-    <Footer />
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router} />
+      <Footer />
+    </PersistGate>
   </Provider>
 );
 

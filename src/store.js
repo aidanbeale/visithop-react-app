@@ -1,10 +1,17 @@
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import rootReducer from './reducer'
+import { configureStore } from "@reduxjs/toolkit";
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducer';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-const composedEnhancer = composeWithDevTools(
-  applyMiddleware()
-)
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 
-const store = createStore(rootReducer, composedEnhancer)
-export default store
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({reducer: persistedReducer});
+
+export const persistor = persistStore(store)
+

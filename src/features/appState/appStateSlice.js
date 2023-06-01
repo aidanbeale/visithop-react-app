@@ -88,6 +88,14 @@ export default function appStateReducer(state = initialState, action) {
         userInfo: initialState.userInfo
       }
     }
+    case 'appState/logoutUser': {
+      return {
+        ...state,
+        userToken: initialState.userToken,
+        userInfo: initialState.userInfo,
+        userAuthCode: initialState.userAuthCode
+      }
+    }
     case 'appState/reset': {
       return initialState;
     }

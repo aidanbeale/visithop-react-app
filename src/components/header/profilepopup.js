@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import heartSVG from "../../images/heart.svg";
 import logoutSVG from "../../images/logout.svg";
@@ -10,6 +10,7 @@ import "./profilepopup.css";
 
 const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
   const selectAppState = state => state.appState;
+  const dispatch = useDispatch()
   const appState = useSelector(selectAppState);
 
   const popupRef = useRef();
@@ -29,6 +30,11 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
 
   const hidePopup = () => {
     setShowProf(false);
+  };
+
+  const handleLogout = () => {
+    dispatch({ type: 'appState/logoutUser' });
+    window.location.replace(process.env.REACT_APP_AUTH_COGNITO_URL + 'logout?client_id=' + process.env.REACT_APP_AUTH_USER_POOL_CLIENT_ID + '&response_type=code&logout_uri=' + process.env.REACT_APP_AUTH_COGNITO_LOGOUT_URI);
   };
 
   useEffect(() => {
@@ -78,12 +84,10 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
         </li>
         <div className="line-block"></div>
         <li
-          className="profile-item logout-button"
+          className="profile-item logout-button" onClick={handleLogout}
         >
           <img className="profile-svg" src={logoutSVG} alt="Exit" />
-          <a href={process.env.REACT_APP_AUTH_COGNITO_URL + 'logout?client_id=' + process.env.REACT_APP_AUTH_USER_POOL_CLIENT_ID + '&response_type=code&logout_uri=' + process.env.REACT_APP_AUTH_COGNITO_LOGOUT_URI}>
             Logout
-          </a>
         </li>
       </ul>
     </div>
