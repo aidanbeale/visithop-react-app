@@ -13,7 +13,7 @@ const ProfilePopup = ({ showProf, setShowProf, profileRef }) => {
   const appState = useSelector(selectAppState);
 
   const popupRef = useRef();
-  const name = appState.userInfo.username || "Unknown User";
+  const name = appState.userInfo && appState.userInfo.username || "Unknown User";
 
   useEffect(() => {
     function handleClickOutside(event) {
